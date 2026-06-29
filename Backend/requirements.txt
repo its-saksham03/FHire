@@ -1,0 +1,15 @@
+# FHire — Requirements
+# Member 1: Core Engine
+sentence-transformers==3.0.1
+numpy==2.3.1
+scipy==1.16.0
+python-docx==1.1.2
+tqdm==4.68.3
+
+# Member 2: Backend
+fastapi==0.127.0
+uvicorn[standard]==0.40.0
+pydantic==2.12.5
+
+# Shared utilities
+pathlib2==2.3.7.post1

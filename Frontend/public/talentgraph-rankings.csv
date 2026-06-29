@@ -1,0 +1,51 @@
+Rank,Candidate ID,Final Score,Confidence,Title,Company,Location,Career DNA,Capability,Trajectory,Recruitability,Authenticity,Notice Period (days),Open to Work,Response Rate Percentile,GitHub Score,Authenticity Flags,Disqualification Reason
+1,CAND_0000001,0.792,Medium,Backend Engineer,Mindtree,Toronto,Research Specialist,98,50,92,70,60,true,34,9.2,,
+2,CAND_0000015,0.774,Medium,Software Engineer,Razorpay,"Trivandrum, Kerala",Research Specialist,98,50,83,70,90,true,32,,,
+3,CAND_0000025,0.756,Medium,Frontend Engineer,Tech Mahindra,"Vizag, Andhra Pradesh",Research Specialist,98,50,74,70,120,true,74,,,
+4,CAND_0000023,0.751,Medium,Software Engineer,Acme Corp,New York,Research Specialist,98,40,84,70,30,false,57,48.5,,
+5,CAND_0000031,0.750,Medium,Recommendation Systems Engineer,Swiggy,"Hyderabad, Telangana",Startup Builder,98,30,96,70,60,true,91,32.6,,
+6,CAND_0000035,0.730,Medium,Full Stack Developer,Globex Inc,"Hyderabad, Telangana",Research Specialist,98,50,61,70,60,false,34,,,
+7,CAND_0000011,0.727,Medium,QA Engineer,Pied Piper,"Hyderabad, Telangana",Research Specialist,98,40,72,70,90,false,56,32.3,,
+8,CAND_0000048,0.725,Medium,Mobile Developer,CRED,"Hyderabad, Telangana",Research Specialist,98,40,71,70,120,true,65,,,
+9,CAND_0000014,0.723,Medium,Frontend Engineer,Zomato,"Hyderabad, Telangana",Research Specialist,98,40,70,70,90,false,80,,,
+10,CAND_0000038,0.722,Low,Java Developer,Swiggy,"Coimbatore, Tamil Nadu",Research Specialist,98,50,85,42,90,true,20,37.8,Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,
+11,CAND_0000027,0.719,Low,DevOps Engineer,Infosys,"Kolkata, West Bengal",Research Specialist,98,40,96,42,90,true,58,38.6,Incomplete profile: below 35% completeness threshold; Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,
+12,CAND_0000010,0.708,Medium,Data Engineer,Ola,London,Research Specialist,98,50,50,70,120,false,40,33.7,,
+13,CAND_0000044,0.682,Low,Frontend Engineer,Tech Mahindra,"Indore, Madhya Pradesh",Research Specialist,98,50,65,42,90,false,66,6.5,Incomplete profile: below 35% completeness threshold; Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,
+14,CAND_0000046,0.662,Low,Mechanical Engineer,Hooli,London,Research Specialist,83,50,78,45,30,false,41,20.9,Title-skill mismatch: non-technical role claiming ML expertise; Skill endorsement pattern inconsistent with stated proficiency,
+15,CAND_0000020,0.644,Low,Mechanical Engineer,Wipro,"Ahmedabad, Gujarat",Research Specialist,79,50,76,45,30,false,55,,Title-skill mismatch: non-technical role claiming ML expertise; Skill endorsement pattern inconsistent with stated proficiency,
+16,CAND_0000007,0.637,Low,Civil Engineer,Wipro,"Gurgaon, Haryana",Research Specialist,76,50,78,45,30,false,62,,Title-skill mismatch: non-technical role claiming ML expertise; Skill endorsement pattern inconsistent with stated proficiency,
+17,CAND_0000043,0.637,Medium,Cloud Engineer,Swiggy,"Chandigarh, Chandigarh",Research Specialist,98,40,27,70,120,false,4,,,
+18,CAND_0000032,0.615,Low,.NET Developer,Cognizant,"Gurgaon, Haryana",Research Specialist,98,40,44,42,150,false,69,,Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,
+19,CAND_0000013,0.611,Low,Civil Engineer,Globex Inc,Dubai,Research Specialist,70,40,96,37,30,true,28,35.6,Title-skill mismatch: non-technical role claiming ML expertise; Skill endorsement pattern inconsistent with stated proficiency,
+20,CAND_0000018,0.608,Low,Frontend Engineer,Acme Corp,"Bhubaneswar, Odisha",Research Specialist,98,50,28,42,120,false,16,,Incomplete profile: below 35% completeness threshold; Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,
+21,CAND_0000049,0.558,Low,Mechanical Engineer,Wayne Enterprises,Berlin,Research Specialist,80,40,44,45,120,false,59,,Title-skill mismatch: non-technical role claiming ML expertise; Skill endorsement pattern inconsistent with stated proficiency,
+22,CAND_0000022,0.550,Low,Mechanical Engineer,Hooli,Sydney,Research Specialist,69,40,59,45,150,true,27,,Title-skill mismatch: non-technical role claiming ML expertise; Skill endorsement pattern inconsistent with stated proficiency,
+23,CAND_0000009,0.494,Low,Mechanical Engineer,Dunder Mifflin,New York,Research Specialist,80,40,40,17,150,false,53,,Title-skill mismatch: non-technical role claiming ML expertise; Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,
+24,CAND_0000016,0.295,Low,Accountant,Infosys,"Gurgaon, Haryana",Scale Expert,5,50,96,60,60,true,64,42.9,,Irrelevant title for AI Engineer role
+25,CAND_0000024,0.281,Low,HR Manager,TCS,"Trivandrum, Kerala",Scale Expert,5,50,85,60,60,false,78,46.3,,Irrelevant title for AI Engineer role
+26,CAND_0000005,0.279,Low,Accountant,Stark Industries,"Gurgaon, Haryana",Scale Expert,5,40,96,60,30,true,37,,,Irrelevant title for AI Engineer role
+27,CAND_0000033,0.279,Low,Graphic Designer,Wipro,"Pune, Maharashtra",Scale Expert,5,40,96,60,30,true,8,38.3,,Irrelevant title for AI Engineer role
+28,CAND_0000026,0.272,Low,Graphic Designer,Initech,"Kochi, Kerala",Scale Expert,5,50,78,60,30,false,59,,,Irrelevant title for AI Engineer role
+29,CAND_0000036,0.271,Low,Project Manager,Initech,"Trivandrum, Kerala",Scale Expert,5,40,90,60,60,true,40,,,Irrelevant title for AI Engineer role
+30,CAND_0000042,0.268,Low,HR Manager,Wayne Enterprises,Berlin,Scale Expert,5,50,75,60,30,false,58,,,Irrelevant title for AI Engineer role
+31,CAND_0000002,0.267,Low,Operations Manager,Wipro,"Chennai, Tamil Nadu",Scale Expert,5,40,87,60,60,true,29,,,Irrelevant title for AI Engineer role
+32,CAND_0000030,0.254,Low,Marketing Manager,Dunder Mifflin,"Kochi, Kerala",Scale Expert,5,40,77,60,60,false,66,21.7,,Irrelevant title for AI Engineer role
+33,CAND_0000041,0.252,Low,Operations Manager,Hooli,"Delhi, Delhi",Scale Expert,5,40,75,60,90,true,7,,,Irrelevant title for AI Engineer role
+34,CAND_0000029,0.242,Low,Business Analyst,Wipro,"Noida, Uttar Pradesh",Scale Expert,5,50,63,52,60,false,12,42.5,,Irrelevant title for AI Engineer role
+35,CAND_0000021,0.241,Low,Project Manager,Wipro,"Bhubaneswar, Odisha",Scale Expert,5,40,67,60,60,false,49,6.4,,Irrelevant title for AI Engineer role
+36,CAND_0000045,0.236,Low,Project Manager,Initech,"Indore, Madhya Pradesh",Scale Expert,5,40,91,32,60,true,62,,Incomplete profile: below 35% completeness threshold; Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,Irrelevant title for AI Engineer role
+37,CAND_0000047,0.232,Low,Project Manager,TCS,"Kochi, Kerala",Scale Expert,5,40,60,60,90,false,39,,,Irrelevant title for AI Engineer role
+38,CAND_0000008,0.231,Low,Operations Manager,Wipro,"Noida, Uttar Pradesh",Scale Expert,5,40,59,60,90,false,42,,,Irrelevant title for AI Engineer role
+39,CAND_0000050,0.231,Low,Business Analyst,Infosys,"Gurgaon, Haryana",Scale Expert,5,40,67,52,90,false,42,44.7,,Irrelevant title for AI Engineer role
+40,CAND_0000012,0.226,Low,Operations Manager,Stark Industries,"Chandigarh, Chandigarh",Scale Expert,5,40,55,60,60,false,16,,,Irrelevant title for AI Engineer role
+41,CAND_0000028,0.225,Low,Operations Manager,Wipro,Dubai,Scale Expert,5,40,54,60,60,false,14,,,Irrelevant title for AI Engineer role
+42,CAND_0000037,0.219,Low,Business Analyst,Stark Industries,Dubai,Scale Expert,5,40,78,32,30,false,78,,Incomplete profile: below 35% completeness threshold; Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,Irrelevant title for AI Engineer role
+43,CAND_0000019,0.211,Low,Project Manager,Wayne Enterprises,"Trivandrum, Kerala",Scale Expert,5,50,59,32,60,false,34,,Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,Irrelevant title for AI Engineer role
+44,CAND_0000039,0.209,Low,Marketing Manager,Acme Corp,"Bhubaneswar, Odisha",Scale Expert,5,40,70,32,30,false,52,,Incomplete profile: below 35% completeness threshold; Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,Irrelevant title for AI Engineer role
+45,CAND_0000034,0.208,Low,Business Analyst,Wipro,"Ahmedabad, Gujarat",Scale Expert,5,40,49,52,90,false,15,,,Irrelevant title for AI Engineer role
+46,CAND_0000040,0.193,Low,Customer Support,Globex Inc,"Kochi, Kerala",Scale Expert,5,40,58,32,90,false,46,,Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,Irrelevant title for AI Engineer role
+47,CAND_0000017,0.186,Low,Accountant,Wipro,"Bangalore, Karnataka",Scale Expert,5,40,52,32,90,false,27,,Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,Irrelevant title for AI Engineer role
+48,CAND_0000006,0.169,Low,Business Analyst,Wayne Enterprises,Austin,Scale Expert,5,50,27,32,150,false,12,,Incomplete profile: below 35% completeness threshold; Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,Irrelevant title for AI Engineer role
+49,CAND_0000003,0.166,Low,Customer Support,TCS,Austin,Scale Expert,5,40,37,32,150,false,46,,Incomplete profile: below 35% completeness threshold; Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,Irrelevant title for AI Engineer role
+50,CAND_0000004,0.158,Low,Marketing Manager,Dunder Mifflin,Sydney,Scale Expert,5,40,31,32,120,false,26,,Incomplete profile: below 35% completeness threshold; Unverified contact information; Skill endorsement pattern inconsistent with stated proficiency,Irrelevant title for AI Engineer role

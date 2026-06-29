@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;700&family=JetBrains+Mono:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sora: "Space Grotesk", sans-serif;
+  --font-literata: "Space Grotesk", sans-serif;
+  --font-geist-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  * {
+    @apply border-outline-variant/30;
+  }
+
+  body {
+    @apply bg-background text-on-surface font-body-md antialiased;
+    background-color: #0c0e12;
+    color: #f8fafc;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline-lg font-bold tracking-tight text-white/90;
+  }
+}
+
+@layer components {
+  /* Design System Visual Utilities */
+  .glass-panel {
+    background: rgba(17, 20, 23, 0.25);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .rim-light {
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .frozen-glow {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(125, 211, 252, 0.08) 100%);
+    border: 1px solid rgba(125, 211, 252, 0.25);
+    box-shadow: 0 0 20px rgba(125, 211, 252, 0.08);
+  }
+
+  .electric-glow {
+    box-shadow: 0 0 15px rgba(125, 211, 252, 0.15);
+  }
+
+  .etched-input {
+    background: rgba(12, 14, 18, 0.4);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+  }
+
+  .etched-input:focus {
+    border-color: rgba(125, 211, 252, 0.45);
+    outline: none;
+    box-shadow: 0 0 10px rgba(125, 211, 252, 0.08);
+  }
+
+  .fade-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(148, 163, 184, 0.08) 50%, transparent 100%);
+  }
+
+  .hover-shimmer:hover {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+    background-size: 200% 100%;
+    animation: shimmer-crystalline 2.5s infinite linear;
+  }
+
+  .animate-ai-pulse {
+    animation: pulse-ai 3s infinite;
+  }
+
+  .mask-fade {
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  }
+
+  .ice-meter {
+    background: linear-gradient(90deg, #23282e 0%, #7dd3fc 100%);
+  }
+
+  .node-line {
+    background: repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(255, 255, 255, 0.05) 10px, rgba(255, 255, 255, 0.05) 11px);
+  }
+
+  /* Custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0c0e12;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #23282e;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7dd3fc;
+  }
+
+  /* Keyframe animations helper styles */
+  @keyframes shimmer-crystalline {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes pulse-ai {
+    0% { box-shadow: 0 0 0 0 rgba(125, 211, 252, 0.35); }
+    70% { box-shadow: 0 0 0 12px rgba(125, 211, 252, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(125, 211, 252, 0); }
+  }
+
+  /* Kept from prototype, upgraded colors for theme matching */
+  .glow-button {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_15px_rgba(125,211,252,0.25)];
+  }
+
+  .liquid-fill {
+    background: linear-gradient(
+      90deg,
+      rgba(125, 211, 252, 0.7) 0%,
+      rgba(255, 255, 255, 0.8) 100%
+    );
+  }
+
+  .liquid-fill-yellow {
+    background: linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.5) 0%,
+      rgba(226, 232, 240, 0.7) 100%
+    );
+  }
+
+  .liquid-fill-risk {
+    background: linear-gradient(
+      90deg,
+      rgba(248, 113, 113, 0.6) 0%,
+      rgba(252, 165, 165, 0.8) 100%
+    );
+  }
+
+  .dimension-card {
+    @apply relative overflow-hidden rounded-xl border border-white/5 bg-surface-container-low/40 p-6 transition-all duration-300;
+  }
+
+  .dimension-card:hover {
+    @apply -translate-y-1.5 bg-surface-container-high/40 border-tertiary/20 shadow-[0_0_20px_rgba(125,211,252,0.06)];
+  }
+
+  .dimension-card::before {
+    content: "";
+    @apply absolute left-0 top-0 h-0 w-[2px] bg-tertiary transition-all duration-300;
+  }
+
+  .dimension-card:hover::before {
+    @apply h-full;
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.0s cubic-bezier(0.77, 0, 0.175, 1),
+      transform 1.0s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .avatar-circle {
+    border-radius: 50%;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+  }
+}

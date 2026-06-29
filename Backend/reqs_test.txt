@@ -1,0 +1,9 @@
+sentence-transformers
+numpy
+scipy
+python-docx
+tqdm
+fastapi
+uvicorn[standard]
+pydantic
+pathlib2
