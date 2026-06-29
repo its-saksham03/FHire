@@ -30,35 +30,39 @@
 @layer components {
   /* Design System Visual Utilities */
   .glass-panel {
-    background: rgba(17, 20, 23, 0.25);
-    backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    background: rgba(13, 16, 21, 0.45);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.03),
+      0 4px 20px rgba(0, 0, 0, 0.35);
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   }
 
   .rim-light {
-    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.04);
   }
 
   .frozen-glow {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(125, 211, 252, 0.08) 100%);
-    border: 1px solid rgba(125, 211, 252, 0.25);
-    box-shadow: 0 0 20px rgba(125, 211, 252, 0.08);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(125, 211, 252, 0.06) 100%);
+    border: 1px solid rgba(125, 211, 252, 0.2);
+    box-shadow: 0 0 15px rgba(125, 211, 252, 0.05);
   }
 
   .electric-glow {
-    box-shadow: 0 0 15px rgba(125, 211, 252, 0.15);
+    box-shadow: 0 0 12px rgba(125, 211, 252, 0.1);
   }
 
   .etched-input {
-    background: rgba(12, 14, 18, 0.4);
-    border: 1px solid rgba(148, 163, 184, 0.15);
+    background: rgba(12, 14, 18, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
   .etched-input:focus {
-    border-color: rgba(125, 211, 252, 0.45);
+    border-color: rgba(125, 211, 252, 0.35);
     outline: none;
-    box-shadow: 0 0 10px rgba(125, 211, 252, 0.08);
+    box-shadow: 0 0 12px rgba(125, 211, 252, 0.06);
   }
 
   .fade-rule {
@@ -146,20 +150,26 @@
   }
 
   .dimension-card {
-    @apply relative overflow-hidden rounded-xl border border-white/5 bg-surface-container-low/40 p-6 transition-all duration-300;
+    @apply relative overflow-hidden rounded-xl border border-white/5 bg-surface-container-low/30 p-6;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .dimension-card:hover {
-    @apply -translate-y-1.5 bg-surface-container-high/40 border-tertiary/20 shadow-[0_0_20px_rgba(125,211,252,0.06)];
+    transform: translateY(-4px);
+    @apply bg-surface-container-high/30 border-tertiary/20 shadow-[0_12px_24px_rgba(0,0,0,0.4)];
   }
 
   .dimension-card::before {
     content: "";
-    @apply absolute left-0 top-0 h-0 w-[2px] bg-tertiary transition-all duration-300;
+    @apply absolute left-0 top-0 h-0 w-[2px] bg-tertiary;
+    transition: height 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .dimension-card:hover::before {
-    @apply h-full;
+    height: 100%;
   }
 
   .fade-in-up {
@@ -180,5 +190,26 @@
 
   .material-symbols-outlined {
     font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+  }
+
+  @keyframes line-shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  .premium-loading-bar {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .premium-loading-bar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.5), transparent);
+    animation: line-shimmer 1.6s infinite ease-in-out;
   }
 }

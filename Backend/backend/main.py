@@ -357,6 +357,22 @@ def create_app() -> FastAPI:
             del response.headers["server"]
         return response
 
+    # Root and health check endpoints for production deployment (e.g. Render)
+    @app.get("/health", tags=["System"])
+    async def health_check():
+        return {
+            "status": "ok",
+            "service": "FHire Backend",
+            "version": VERSION
+        }
+
+    @app.get("/", tags=["System"])
+    async def root_endpoint():
+        return {
+            "service": "FHire Backend",
+            "status": "running"
+        }
+
     # Mount all API routes under /api prefix
     app.include_router(router, prefix="/api")
 
@@ -370,11 +386,13 @@ app = create_app()
 
 if __name__ == "__main__":
     import uvicorn
+    # Render binds dynamically to PORT environment variable
+    port = int(os.getenv("PORT", "8000"))
 
     uvicorn.run(
         "backend.main:app",
         host="0.0.0.0",
-        port=8000,
+        port=port,
         reload=not IS_PRODUCTION,  # Never reload in production
         log_level="info",
     )

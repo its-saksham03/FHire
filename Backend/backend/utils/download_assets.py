@@ -33,15 +33,32 @@ def find_input_value(name: str, html: str) -> str:
         
     return None
 
+def requests_get_with_retry(session: requests.Session, url: str, params: dict, stream: bool = True, timeout: int = 15) -> requests.Response:
+    max_attempts = 3
+    backoff_factor = 2
+    for attempt in range(1, max_attempts + 1):
+        try:
+            response = session.get(url, params=params, stream=stream, timeout=timeout, verify=False)
+            response.raise_for_status()
+            return response
+        except (requests.exceptions.RequestException, Exception) as e:
+            print(f"  [Warning] Attempt {attempt} failed: {e}")
+            if attempt == max_attempts:
+                print(f"  [Error] Max download attempts (3) exceeded for URL: {url}")
+                raise
+            sleep_time = backoff_factor ** attempt
+            print(f"  Retrying in {sleep_time} seconds...")
+            time.sleep(sleep_time)
+
 def download_file_from_google_drive(file_id: str, destination: Path):
     url = "https://docs.google.com/uc?export=download"
     session = requests.Session()
 
     print(f"Connecting to Google Drive to download File ID: {file_id}...")
     try:
-        response = session.get(url, params={'id': file_id}, stream=True, timeout=30, verify=False)
+        response = requests_get_with_retry(session, url, {'id': file_id}, stream=True, timeout=20)
     except Exception as e:
-        raise RuntimeError(f"Connection to Google Drive failed: {e}")
+        raise RuntimeError(f"Connection to Google Drive failed after 3 attempts: {e}")
 
     # Check cookies first
     token = None
@@ -71,24 +88,24 @@ def download_file_from_google_drive(file_id: str, destination: Path):
                 
             print("  Warning page detected. Resubmitting confirmation token...")
             try:
-                response = session.get(dl_url, params=params, stream=True, timeout=30, verify=False)
+                response = requests_get_with_retry(session, dl_url, params, stream=True, timeout=30)
             except Exception as e:
-                raise RuntimeError(f"Download request failed: {e}")
+                raise RuntimeError(f"Download request failed after 3 attempts: {e}")
         else:
             # Fallback to confirm=t
             print("  Warning page detected. Using confirm=t fallback...")
             params = {'id': file_id, 'confirm': 't'}
             try:
-                response = session.get(url, params=params, stream=True, timeout=30, verify=False)
+                response = requests_get_with_retry(session, url, params, stream=True, timeout=30)
             except Exception as e:
-                raise RuntimeError(f"Download request failed: {e}")
+                raise RuntimeError(f"Download request failed after 3 attempts: {e}")
     elif token:
         # Re-request docs.google.com/uc with warning token from cookie
         params = {'id': file_id, 'confirm': token}
         try:
-            response = session.get(url, params=params, stream=True, timeout=30, verify=False)
+            response = requests_get_with_retry(session, url, params, stream=True, timeout=30)
         except Exception as e:
-            raise RuntimeError(f"Download request failed: {e}")
+            raise RuntimeError(f"Download request failed after 3 attempts: {e}")
 
     try:
         response.raise_for_status()

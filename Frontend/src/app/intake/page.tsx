@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { rankCandidates, downloadCSV } from "@/lib/api";
 import type { RankedCandidateItem } from "@/lib/types";
 import { ScorePill, CareerDNABadge, ConfidenceBadge } from "@/components/badges";
-import { LoadingSpinner, ErrorState } from "@/components/shared";
+import { LoadingSpinner, ErrorState, SkeletonLoader } from "@/components/shared";
 import { parseJobDescription, type RequirementSummary } from "@/lib/jd-parser";
 
 const SAMPLE_REQUIREMENTS = [
@@ -56,8 +56,8 @@ export default function IntakePage() {
     if (loadingCandidates) {
       setLoadingStep(0);
       interval = setInterval(() => {
-        setLoadingStep((prev) => prev + 1);
-      }, 800);
+        setLoadingStep((prev) => (prev < 3 ? prev + 1 : 3));
+      }, 1200);
     } else {
       setLoadingStep(0);
     }
@@ -66,8 +66,9 @@ export default function IntakePage() {
 
   const getLoadingMessage = () => {
     if (loadingStep === 0) return "Analyzing Job Description...";
-    if (loadingStep === 1) return "Matching candidates...";
-    return "Ranking candidates...";
+    if (loadingStep === 1) return "Evaluating Candidate Intelligence...";
+    if (loadingStep === 2) return "Calculating Hiring Confidence...";
+    return "Preparing Recommendations...";
   };
 
   const handleSynthesize = () => {
@@ -375,7 +376,7 @@ export default function IntakePage() {
               {/* Loading Indicator */}
               {loadingCandidates && (
                 <div className="pt-2">
-                  <LoadingSpinner label={getLoadingMessage()} />
+                  <SkeletonLoader label={getLoadingMessage()} />
                 </div>
               )}
 
