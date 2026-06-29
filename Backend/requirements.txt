@@ -13,3 +13,4 @@ pydantic==2.12.5
 
 # Shared utilities
 pathlib2==2.3.7.post1
+requests==2.34.2

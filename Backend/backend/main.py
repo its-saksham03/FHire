@@ -75,6 +75,15 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     """
     state = get_state()
 
+    # ── Automatically download assets if missing ─────────────────────────────
+    try:
+        from backend.utils.download_assets import check_and_download_all_assets
+        check_and_download_all_assets()
+    except Exception as e:
+        logger.critical(f"Asset check/download failed at startup: {e}")
+        import sys
+        sys.exit(1)
+
     embeddings_path = Path(os.getenv("EMBEDDINGS_PATH", _DEFAULT_EMBEDDINGS))
     distributions_path = Path(os.getenv("DISTRIBUTIONS_PATH", _DEFAULT_DISTRIBUTIONS))
     candidates_path = Path(os.getenv("CANDIDATES_PATH", _DEFAULT_CANDIDATES))

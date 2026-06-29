@@ -81,3 +81,7 @@ src/
 public/
   talentgraph-rankings.csv
 ```
+
+## Backend Asset Automatic Download
+The FastAPI backend requires two large assets (`candidates.jsonl` and `embeddings.npz`) to compute scores. On backend startup, these assets are automatically downloaded from Google Drive if they are missing or corrupt, followed by automated integrity checks to guarantee service readiness.
+
